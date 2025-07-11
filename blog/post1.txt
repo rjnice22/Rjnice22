@@ -1,0 +1,59 @@
+Building a Dynamic Blog Post Loader with HTML and JavaScript
+🗓 July 11, 2025
+
+In this blog post, I walk through how I set up a simple, scalable blog system using plain HTML and JavaScript.
+
+### 🧠 The Goal
+I wanted to build a system where I could write my blog posts in `.txt` files and load them into a shared HTML template. This would allow me to add new posts by:
+1. Writing a new `.txt` file.
+2. Copying and pasting a blog card in `blog.html`.
+3. Pointing the link to the same `post.html` template with a different query string.
+
+### 🛠 The Solution
+
+#### ✅ Create a `post.html` Template
+Instead of making a new HTML file for every blog post, I made one reusable `post.html` and used JavaScript to pull in `.txt` content based on the URL.
+
+Here’s the key script:
+
+```javascript
+const params = new URLSearchParams(window.location.search);
+const file = params.get("file") || "default.txt";
+
+fetch(file)
+    .then(response => {
+        if (!response.ok) throw new Error('Failed to load content.');
+        return response.text();
+    })
+    .then(data => {
+        const contentArea = document.getElementById('post-content');
+        contentArea.innerHTML = `<p>${data.replace(/\n/g, '<br>')}</p>`;
+        contentArea.classList.add('fade-in-loaded');
+    })
+    .catch(error => {
+        document.getElementById('post-content').innerHTML = '<p>Error loading content.</p>';
+        console.error(error);
+    });
+```
+
+#### ✅ Update the Blog Listing
+In `blog.html`, I added links like this:
+
+```html
+<a href="post.html?file=post1.txt" class="blog-readmore">Read More</a>
+```
+
+This lets me keep all the posts in `.txt` format and use one HTML template for everything.
+
+### 🔁 My Workflow Now
+Any time I want to write a new post, I:
+- Duplicate an existing `.txt` file (e.g., `post1.txt`)
+- Add my new content
+- Copy a blog card in `blog.html` and update the link to something like `post2.txt`
+
+### ✅ Result
+Clean, simple, and fully under my control — no backend, no CMS, just static files and JavaScript.
+
+This blog is now live and growing one `.txt` file at a time.
+
+Stay tuned for more updates!

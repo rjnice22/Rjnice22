@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>First Blog Post</title>
+    <link rel="stylesheet" href="../css/styles.css">
+</head>
+<body>
+    <nav>
+        <ul>
+            <li>
+            <a href="../index.html" class="logo">
+                <img src="../images/Logo.png" alt="Portfolio Logo" width="110" height="110">
+            </a>
+            </li>
+            <li><a href="../about.html">About Me</a></li>
+            <li><a href="../projects.html">Projects</a></li>
+            <li><a href="../contact.html">Contact</a></li>
+            <li><a href="../resume.html">Resume</a></li>
+            <li><a href="../blog.html">Blog</a></li>
+        </ul>
+    </nav>
+
+    <header>
+        <h2>First Blog Post</h2>
+        <p>Date: July 2, 2025</p>
+        
+        <section id="post-content">
+            <p>Loading content...</p>
+        </section>
+    </header>
+
+    <footer>
+        <p>&copy; 2025 Rico Johnson-Hall. All rights reserved.</p>
+    </footer>
+
+    <script>
+    fetch('post1.txt')
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Failed to load content.');
+            }
+            return response.text();
+        })
+        .then(data => {
+            const contentArea = document.getElementById('post-content');
+            // Replace line breaks with <br> for better formatting
+            contentArea.innerHTML = `<p>${data.replace(/\n/g, '<br>')}</p>`;
+        })
+        .catch(error => {
+            document.getElementById('post-content').innerHTML = '<p>Error loading content.</p>';
+            console.error(error);
+        });
+    </script>
+</body>
+</html>
