@@ -13,7 +13,7 @@ Welcome to my GitHub! I'm a Navy veteran and software development student at ECP
 
 ## 📫 Contact Me
 - 📧 ricojohnsonhall@gmail.com
-- 🌐 [My Portfolio](https://rjnice22.github.io/portfolio/)
+- 🌐 [My Portfolio](https://rjnice22.github.io/Rjnice22/)
 
 <!--
 **rjnice22/Rjnice22** is a ✨ _special_ ✨ repository because its `README.md` (this file) appears on your GitHub profile.
