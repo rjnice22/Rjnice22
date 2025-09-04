@@ -7,9 +7,9 @@ Welcome to my GitHub! I'm a Navy veteran and software development student at ECP
 - 🧠 A local teleprompter app with Electron.js  
 
 ## 🔧 Skills
-- HTML, CSS, JavaScript, Python
+- HTML, CSS, JavaScript, Python, 
 - Git, GitHub, Linux
-- Currently studying CompTIA A+ & Security+
+- Certifications: CompTIA A+
 
 ## 📫 Contact Me
 - 📧 ricojohnsonhall@gmail.com
